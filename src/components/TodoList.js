@@ -1,10 +1,15 @@
 import React from 'react'
 
-function TodoList() {
+function TodoList(props) {
+ 
   return (
+    <>
     <div>
-      <h1>Enter Anything</h1>
-    </div>
+    <li>{props.itemsValue}</li>
+    <button  onClick={()=>props.onSelect(props.id)}>delete</button>
+    <button  onClick={()=>props.onUpdate(props.id)}>edit</button>
+  </div>
+  </>
   )
 }
 
