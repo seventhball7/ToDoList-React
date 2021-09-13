@@ -59,7 +59,7 @@ const Todo=()=> {
           type="text" placeholder="Add anything" value={input} onChange={updateList}/>
         <button onClick={AddList}>+</button>
          {editFlag ? (<button onClick={updateItem}>Update</button>) : (<button onClick={AddList}>Update</button>)}
-         <TodoList list ={list} onSelect={deleteItems} onUpdate={editItems}/>
+       <TodoList list ={list} onSelect={deleteItems} onUpdate={editItems}/>
       </div>
     );
   }

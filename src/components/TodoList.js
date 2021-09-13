@@ -6,11 +6,11 @@ function TodoList({list,onSelect,onUpdate}) {
     <>
     {list.map((itemsValue,id)=>{
         return (
-            <ul>
+            <ol>
             <li>{itemsValue}</li>
             <button  onClick={()=>onSelect(id)}>delete</button>
             <button  onClick={()=>onUpdate(id)}>edit</button>
-            </ul>
+            </ol>
         )
     })}
     
