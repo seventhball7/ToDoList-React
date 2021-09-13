@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 
 import TodoList from "./TodoList";
-
-
+ 
+export const TodoContext=React.createContext();
 const Todo=()=> {
     const [input, setInput] = useState("");
     const [list, setList] = useState([]);
@@ -52,15 +52,16 @@ const Todo=()=> {
     };
   
     return (
-      
+      <TodoContext.Provider value={{list,deleteItems,editItems}}>
       <div>
         <h3> Enter Anything</h3>
         <input
           type="text" placeholder="Add anything" value={input} onChange={updateList}/>
         <button onClick={AddList}>+</button>
          {editFlag ? (<button onClick={updateItem}>Update</button>) : (<button onClick={AddList}>Update</button>)}
-       <TodoList list ={list} onSelect={deleteItems} onUpdate={editItems}/>
+       <TodoList/>
       </div>
+      </TodoContext.Provider>
     );
   }
   

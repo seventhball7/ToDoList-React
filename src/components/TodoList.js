@@ -1,20 +1,19 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import {TodoContext} from './Todo';
 
-function TodoList({list,onSelect,onUpdate}) {
- 
+function TodoList() {
+ const {list,deleteItems,editItems}= useContext(TodoContext)  
   return (
     <>
-    {list.map((itemsValue,id)=>{
+     {list.map((itemsValue,id)=>{
         return (
             <ol>
             <li>{itemsValue}</li>
-            <button  onClick={()=>onSelect(id)}>delete</button>
-            <button  onClick={()=>onUpdate(id)}>edit</button>
+            <button  onClick={()=>deleteItems(id)}>delete</button>
+            <button  onClick={()=>editItems(id)}>edit</button>
             </ol>
         )
     })}
-    
-   
   </>
   )
 }
