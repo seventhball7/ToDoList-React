@@ -1,16 +1,24 @@
 import React from 'react'
 
-function TodoList(props) {
+function TodoList({list,onSelect,onUpdate}) {
  
   return (
     <>
-    <div>
-    <li>{props.itemsValue}</li>
-    <button  onClick={()=>props.onSelect(props.id)}>delete</button>
-    <button  onClick={()=>props.onUpdate(props.id)}>edit</button>
-  </div>
+    {list.map((itemsValue,id)=>{
+        return (
+            <ul>
+            <li>{itemsValue}</li>
+            <button  onClick={()=>onSelect(id)}>delete</button>
+            <button  onClick={()=>onUpdate(id)}>edit</button>
+            </ul>
+        )
+    })}
+    
+   
   </>
   )
 }
 
 export default TodoList
+
+
